@@ -28,6 +28,13 @@ Nueva Categria
     </div>
   </div>
 
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Descripcion</label>
+    <div class="col-md-6">
+      <textarea name="description" class="form-control" placeholder="Descripcion"></textarea>
+    </div>
+  </div>
+
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
@@ -56,6 +63,7 @@ Nueva Categria
 			<table class="table table-bordered table-hover datatable">
 			<thead>
 			<th>Categoria</th>
+			<th>Posts</th>
 			<th></th>
 			</thead>
 			<?php
@@ -63,6 +71,7 @@ Nueva Categria
 				?>
 				<tr>
 				<td><?php echo $user->name; ?></td>
+				<td><?php echo PostData::countByCat($user->id); ?></td>
 				<td style="width:130px;">
 
 <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#editModal<?php echo $user->id; ?>">
@@ -92,6 +101,13 @@ Editar
     <label for="inputEmail1" class="col-lg-2 control-label">Categoria*</label>
     <div class="col-md-6">
       <input type="text" name="name" value="<?php echo $user->name;?>" class="form-control" id="name" placeholder="Categoria">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Descripcion</label>
+    <div class="col-md-6">
+      <textarea name="description" class="form-control" placeholder="Descripcion"><?php echo $user->description;?></textarea>
     </div>
   </div>
 

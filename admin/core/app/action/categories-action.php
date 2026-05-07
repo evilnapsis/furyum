@@ -4,12 +4,14 @@ if(isset($_GET["opt"]) && $_GET["opt"]=="add"){
 
 	$user = new CategoryData();
 	$user->name = $_POST["name"];
+	$user->description = $_POST["description"];
 	$user->add();
 	Core::redir("./?view=categories");
 }
 else if(isset($_GET["opt"]) && $_GET["opt"]=="update"){
 	$user = CategoryData::getById($_POST["user_id"]);
 	$user->name = $_POST["name"];
+	$user->description = $_POST["description"];
 	$user->update();
 	Core::redir("./?view=categories");
 }

@@ -1,6 +1,7 @@
 /* 
 @author: evilnapsis
-@brief: updated 2018 
+@brief: Sistema de foro comunitario
+@updated: 2026 
 */
 create database furyum;
 use furyum;
@@ -50,8 +51,15 @@ create table comment(
 	foreign key (user_id) references user(id)
 );
 
-
-
+/* tabla para agregar "likes" a los posts*/
+create table heart(
+	id int not null auto_increment primary key,
+	post_id int not null,
+	user_id int not null,
+	created_at datetime,
+	foreign key (post_id) references post(id),
+	foreign key (user_id) references user(id)
+);
 
 
 /**

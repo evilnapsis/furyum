@@ -83,6 +83,7 @@ Nuevo Articulo
 			<thead>
 			<th>Titulo</th>
       <th>Categoria</th>
+      <th>Me gusta</th>
       <th>Activo</th>
       <th>Creacion</th>
 			<th></th>
@@ -93,6 +94,7 @@ Nuevo Articulo
 				<tr>
 				<td><?php echo $user->title; ?></td>
         <td><?php echo CategoryData::getById($user->category_id)->name; ?></td>
+        <td><?php echo LikeData::countByPost($user->id); ?></td>
        <td>
          <?php if($user->status==1){ echo "<i class='fa fa-check'></i>"; }?>
        </td>

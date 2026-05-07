@@ -1,19 +1,25 @@
 <?php
 class CommentData {
 	public static $tablename = "comment";
-
+	public $id;
+	public $comment;
+	public $post_id;
+	public $user_id;
+	public $created_at;
+	public $status;
 
 	public function __construct(){
-		$this->name = "";
-		$this->lastname = "";
-		$this->email = "";
-		$this->password = "";
+		$this->comment = "";
+		$this->post_id = "";
+		$this->user_id = "";
 		$this->created_at = "NOW()";
 	}
 
 	public function add(){
+		$con = Database::getCon();
+		$comment = mysqli_real_escape_string($con, strip_tags($this->comment));
 		$sql = "insert into ".self::$tablename." (user_id,comment,post_id,status,created_at) ";
-		echo $sql .= "value (\"$this->user_id\",\"$this->comment\",$this->post_id,2, NOW())";
+		$sql .= "value (\"$this->user_id\",\"$comment\",$this->post_id,2, NOW())";
 		return Executor::doit($sql);
 	}
 
@@ -28,7 +34,9 @@ class CommentData {
 
 // partiendo de que ya tenemos creado un objecto CommentData previamente utilizamos el contexto
 	public function update(){
-		$sql = "update ".self::$tablename." set code=\"$this->code\",name=\"$this->name\",ruc=\"$this->ruc\",phone=\"$this->phone\",email=\"$this->email\" where id=$this->id";
+		$con = Database::getCon();
+		$comment = mysqli_real_escape_string($con, strip_tags($this->comment));
+		$sql = "update ".self::$tablename." set comment=\"$comment\" where id=$this->id";
 		Executor::doit($sql);
 	}
 
@@ -60,6 +68,18 @@ class CommentData {
 		$sql = "select * from ".self::$tablename." where post_id=$id and status=2" ;
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CommentData());
+	}
+
+	public static function countByPost($id){
+		$sql = "select count(*) as c from ".self::$tablename." where post_id=$id and status=2";
+		$query = Executor::doit($sql);
+		return $query[0]->fetch_array()["c"];
+	}
+
+	public static function countByUser($id){
+		$sql = "select count(*) as c from ".self::$tablename." where user_id=$id and status=2";
+		$query = Executor::doit($sql);
+		return $query[0]->fetch_array()["c"];
 	}
 	
 	public static function getLike($q){
