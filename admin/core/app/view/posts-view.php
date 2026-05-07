@@ -137,6 +137,7 @@ $posts = PostData::getAll();
                             <tr>
                                 <th class="ps-4">Título</th>
                                 <th>Categoría</th>
+                                <th class="text-center">Comentarios</th>
                                 <th class="text-center">Me gusta</th>
                                 <th class="text-center">Estado</th>
                                 <th>Fecha</th>
@@ -166,6 +167,9 @@ $posts = PostData::getAll();
                                     <?php else: ?>
                                         <span class="badge bg-light text-muted rounded-pill small">Sin Categoría</span>
                                     <?php endif; ?>
+                                </td>
+                                <td class="text-center">
+                                    <span class="badge bg-light text-indigo-600 rounded-pill"><?php echo CommentData::countByPost($p->id); ?> <i class="bi bi-chat-left-text ms-1"></i></span>
                                 </td>
                                 <td class="text-center">
                                     <span class="badge bg-light text-indigo-600 rounded-pill"><?php echo LikeData::countByPost($p->id); ?> <i class="bi bi-heart-fill text-danger"></i></span>

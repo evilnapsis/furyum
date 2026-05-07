@@ -23,6 +23,7 @@ $categories = CategoryData::getAll();
                             <tr>
                                 <th class="ps-4">Nombre</th>
                                 <th>Descripción</th>
+                                <th class="text-center">Artículos</th>
                                 <th class="pe-4 text-end">Acciones</th>
                             </tr>
                         </thead>
@@ -31,6 +32,9 @@ $categories = CategoryData::getAll();
                             <tr>
                                 <td class="ps-4 fw-bold text-indigo-900"><?php echo $c->name; ?></td>
                                 <td class="text-muted small"><?php echo $c->description; ?></td>
+                                <td class="text-center">
+                                    <span class="badge bg-indigo-100 text-indigo-700 rounded-pill"><?php echo PostData::countByCat($c->id); ?></span>
+                                </td>
                                 <td class="pe-4 text-end">
                                     <button class="btn btn-light btn-sm text-indigo-600 me-2" onclick="editCategory(<?php echo $c->id; ?>, '<?php echo addslashes($c->name); ?>', '<?php echo addslashes($c->description); ?>')"><i class="bi bi-pencil"></i></button>
                                     <a href="index.php?action=categories&opt=del&id=<?php echo $c->id; ?>" class="btn btn-light btn-sm text-danger"><i class="bi bi-trash"></i></a>

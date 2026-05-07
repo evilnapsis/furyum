@@ -101,6 +101,12 @@ class PostData {
 		return $query[0]->fetch_array()["c"];
 	}
 
+	public static function countByUser($id){
+		$sql = "select count(*) as c from ".self::$tablename." where user_id=$id";
+		$query = Executor::doit($sql);
+		return $query[0]->fetch_array()["c"];
+	}
+
 	public static function getRecent($limit=10){
 		$sql = "select * from ".self::$tablename." order by created_at desc limit $limit";
 		$query = Executor::doit($sql);

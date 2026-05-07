@@ -23,6 +23,8 @@ $users = UserData::getAll();
                             <tr>
                                 <th class="ps-4">Usuario</th>
                                 <th>Email</th>
+                                <th class="text-center">Artículos</th>
+                                <th class="text-center">Karma</th>
                                 <th>Tipo</th>
                                 <th>Estado</th>
                                 <th class="pe-4 text-end">Acciones</th>
@@ -43,6 +45,12 @@ $users = UserData::getAll();
                                     </div>
                                 </td>
                                 <td><?php echo $u->email; ?></td>
+                                <td class="text-center">
+                                    <span class="badge bg-indigo-100 text-indigo-700 rounded-pill"><?php echo PostData::countByUser($u->id); ?></span>
+                                </td>
+                                <td class="text-center">
+                                    <span class="badge bg-emerald-100 text-emerald-700 rounded-pill"><?php echo LikeData::countByUserKarma($u->id); ?> <i class="bi bi-heart-fill ms-1"></i></span>
+                                </td>
                                 <td>
                                     <?php if($u->kind == 1): ?>
                                         <span class="badge bg-indigo-100 text-indigo-700 rounded-pill px-3">Administrador</span>
