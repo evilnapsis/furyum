@@ -6,7 +6,7 @@ Este es el layout principal, a partir de este layout o plantilla se muestran el 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?=Html::title('FURYUM - Forum Engine');?>
+    <?=Html::title('FURYUM - Foro Comunitario');?>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">

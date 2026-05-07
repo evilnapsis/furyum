@@ -1,4 +1,9 @@
 <?php
+/* 
+@author: evilnapsis
+@brief: Sistema de foro comunitario
+@updated: 2026 
+*/
 $debug= true;
 if($debug){
 ini_set('display_errors', 1);

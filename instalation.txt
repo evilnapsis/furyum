@@ -1,4 +1,4 @@
-Instrucciones de Instalacion 
+Instrucciones de Instalacion de Furyum v. 3.0
 
 1.- Copiar y descomprimir el archivo en la carpeta c:\xampp\htdocs, al final tendras una carpeta llamada “furyum”, a la cual accederas desde el navegador como -> http://127.0.0.1/furyum
 2.- Buscar el archivo schema.sql en furyum/schema.sql, una vez localizado copiar y pegar el contenido en una ventana de MySQL, PHPMyAdmin o MySQL WorkBench

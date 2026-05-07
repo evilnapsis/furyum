@@ -1,4 +1,4 @@
-# FURYUM - Community Forum Engine
+# FURYUM - Foro Comunitario v.3.0
 
 FURYUM es un motor de foros moderno, ligero y altamente personalizable, diseñado para crear comunidades vibrantes y seguras. Desarrollado con PHP y basado en una arquitectura MVC robusta, ofrece una experiencia de usuario fluida tanto para administradores como para miembros.
 
