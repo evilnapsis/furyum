@@ -23,9 +23,10 @@ class PostData {
 	public function add(){
 		$con = Database::getCon();
 		$title = mysqli_real_escape_string($con, strip_tags($this->title));
+		$brief = mysqli_real_escape_string($con, strip_tags($this->brief));
 		$content = mysqli_real_escape_string($con, strip_tags($this->content));
-		$sql = "insert into ".self::$tablename." (title,content,category_id,image,user_id,created_at) ";
-		$sql .= "value (\"$title\",\"$content\",$this->category_id,\"$this->image\",$this->user_id, NOW())";
+		$sql = "insert into ".self::$tablename." (title,brief,content,category_id,image,user_id,created_at) ";
+		$sql .= "value (\"$title\",\"$brief\",\"$content\",$this->category_id,\"$this->image\",$this->user_id, NOW())";
 		return Executor::doit($sql);
 	}
 
@@ -42,8 +43,9 @@ class PostData {
 	public function update(){
 		$con = Database::getCon();
 		$title = mysqli_real_escape_string($con, strip_tags($this->title));
+		$brief = mysqli_real_escape_string($con, strip_tags($this->brief));
 		$content = mysqli_real_escape_string($con, strip_tags($this->content));
-		$sql = "update ".self::$tablename." set title=\"$title\",content=\"$content\",image=\"$this->image\",category_id=\"$this->category_id\",status=$this->status where id=$this->id";
+		$sql = "update ".self::$tablename." set title=\"$title\",brief=\"$brief\",content=\"$content\",image=\"$this->image\",category_id=\"$this->category_id\",status=$this->status where id=$this->id";
 		Executor::doit($sql);
 	}
 
